@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
@@ -34,3 +34,10 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+      - name: Build and Deploy
+      uses: testthedocs/github-pages-deploy-action@master
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BUILD_DIR: docs/.vuepress/dist # The folder, the action should deploy.
+        BUILD_SCRIPT: npm install && npm run docs:build # The build script the action should run prior to deploying.
