@@ -7,8 +7,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Vuepress to GitHub Pages
-      uses: jenkey2011/vuepress-deploy@dev
+    - name: Vuepress deploy
+      uses: jenkey2011/vuepress-deploy@1.0.1
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BUILD_DIR: docs/.vuepress/dist/

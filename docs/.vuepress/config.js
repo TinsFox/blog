@@ -14,6 +14,7 @@ module.exports = {
   lastUpdated: 'Last Updated',
   head: headConf,
   plugins: pluginConf,
+  base: "/blog/",
   themeConfig: {
     repo: 'https://github.com/TinsFox/blog',
     repoLabel: 'Github',
