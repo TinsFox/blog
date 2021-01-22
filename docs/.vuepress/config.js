@@ -21,8 +21,9 @@ module.exports = {
     lastUpdated: '上次更新',
     repo: 'TinsFox/blog',
     editLinks: true,
-    editLinkText: '编辑文档！',
+    editLinkText: '帮助我改善此页面！',
     docsDir: 'docs',
+    docsBranch: "main",
     nav: navConf
   },
   markdown: {

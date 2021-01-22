@@ -16,8 +16,23 @@ title: uni-app
 ### 项目生成
 
 #### 方式一
+通过[`HBuilderX`](https://www.dcloud.io/hbuilderx.html) 可视化界面生成 [传送门](https://uniapp.dcloud.io/quickstart-hx?id=%e5%88%9b%e5%bb%bauni-app)
 
 #### 方式二
 
+通过`vue-cli`命令行 [传送门](https://uniapp.dcloud.io/quickstart-cli)
+使用正式版
+```shell
+vue create -p dcloudio/uni-preset-vue my-project
+```
+使用alpha版
+```shell
+vue create -p dcloudio/uni-preset-vue#alpha my-alpha-project
+```
 
-官方提供两种生成uni-app项目方式，一种是
+|      | 可视化界面 | cli脚手架 |
+| ---- | ---------- | --------- |
+|      |            |           |
+|      |            |           |
+|      |            |           |
+
