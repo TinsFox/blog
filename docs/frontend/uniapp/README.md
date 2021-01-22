@@ -8,31 +8,10 @@ title: uni-app
 
 > Vue.js、跨端开发
 
-
 ## 导言
-这是一篇踩坑的文章，并不是[教程](https://uniapp.dcloud.io/)
 
+::: warning 提醒
+**这是一系列uni-app踩坑的文章，并不是[教程](https://uniapp.dcloud.io/)**
+:::
 
-### 项目生成
-
-#### 方式一
-通过[`HBuilderX`](https://www.dcloud.io/hbuilderx.html) 可视化界面生成 [传送门](https://uniapp.dcloud.io/quickstart-hx?id=%e5%88%9b%e5%bb%bauni-app)
-
-#### 方式二
-
-通过`vue-cli`命令行 [传送门](https://uniapp.dcloud.io/quickstart-cli)
-使用正式版
-```shell
-vue create -p dcloudio/uni-preset-vue my-project
-```
-使用alpha版
-```shell
-vue create -p dcloudio/uni-preset-vue#alpha my-alpha-project
-```
-
-|      | 可视化界面 | cli脚手架 |
-| ---- | ---------- | --------- |
-|      |            |           |
-|      |            |           |
-|      |            |           |
 
