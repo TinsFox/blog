@@ -32,6 +32,10 @@ module.exports = [{
         link: '/frontend/webpack/'
       },
       {
+        text: 'uni-app',
+        link: '/frontend/uniapp/'
+      },
+      {
         text: 'Flutter',
         link: '/frontend/flutter/'
       },
@@ -42,6 +46,10 @@ module.exports = [{
       {
         text: 'Utils',
         link: '/frontend/utils/'
+      },
+      {
+        text: 'Lodash',
+        link: '/frontend/lodash/'
       },
     ]
   },
