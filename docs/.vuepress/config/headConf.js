@@ -1,10 +1,3 @@
-/**
- * @name: headConf
- * @author: tinsfox
- * @date: 2021/1/12 下午1:49
- * @description：headConf
- * @update: 2021/1/12 下午1:49
- */
 module.exports = [
   ['link', {
     rel: 'apple-touch-icon',

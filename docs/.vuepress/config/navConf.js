@@ -1,10 +1,3 @@
-/**
- * @name: navConf
- * @author: tinsfox
- * @date: 2021/1/12 下午1:42
- * @description：navConf
- * @update: 2021/1/12 下午1:42
- */
 module.exports = [{
     text: '首页',
     link: '/'
@@ -34,6 +27,10 @@ module.exports = [{
       {
         text: 'uni-app',
         link: '/frontend/uniapp/'
+      },
+      {
+        text: '微信小程序',
+        link: '/frontend/miniprogram/'
       },
       {
         text: 'Flutter',
@@ -102,6 +99,14 @@ module.exports = [{
     ]
   },
   {
+    text: 'DevOps',
+    link: '/DevOps/'
+  },
+  {
+    text: 'Shell',
+    link: '/shell/'
+  },
+  {
     text: '开发工具',
     items: [{
         text: 'Git',
@@ -134,6 +139,10 @@ module.exports = [{
       {
         text: '小工具',
         link: '/more/hodgepodge/'
+      },
+      {
+        text: '提问的艺术',
+        link: 'https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md'
       },
       {
         text: 'VuePress 官网',

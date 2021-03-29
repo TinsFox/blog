@@ -1,10 +1,3 @@
-/**
- * @name: pluginConf
- * @author: tinsfox
- * @date: 2021/1/12 下午1:48
- * @description：pluginConf
- * @update: 2021/1/12 下午1:48
- */
 const moment = require('moment');
 
 moment.locale("zh-cn");
