@@ -69,7 +69,7 @@ title: JavaScript
 
    toString 是Object 原型对象的一个方法，该方法默认返回其调用者的具体类型，更严格的讲是toString运行时this指向的对象类型，返回的类型格式为[Object,xxx]，xxx是具体的数据类型，其中包括：String,Number,Boolean,Undefined,Null,Function,Date,Array,RegExp,Error,HTMLDocument,...基本所有对象的类型都可以通过这个方法找到。
 
-   需要注意的是，必须通过 Object.prototype.toString.call()  来获取，而不能直接 new Date().toString() ，从原型链的角度讲，所有对象的原型链最终都指向了Object，按照 Js 变量查找规则，其他对象应该也可以直接访问到 Object 的 toString 方法，而事实上，大部分对象都实现了自身的 toString 方法，这样可能就会导致 Object 的 toString 被终止查找，因此要用 call 来强制执行 Object 的 toString 方法。
+   需要注意的是，必须通过 Object.prototype.toString.call()  来获取，而不能直接new Date().toString() ，从原型链的角度讲，所有对象的原型链最终都指向了Object，按照 Js 变量查找规则，其他对象应该也可以直接访问到 Object 的 toString 方法，而事实上，大部分对象都实现了自身的 toString 方法，这样可能就会导致 Object 的 toString 被终止查找，因此要用 call 来强制执行 Object 的 toString 方法。
 
    ```javascript
    Object.prototype.toString.call('') ;   // [object String]
@@ -174,7 +174,7 @@ function shallowCopy(target){
 function deepCopy(){
   let copyObj = {}
   for(let key in obj){
-    if(typeof obj[key]==="object"&&obj[key]!==null){
+    if(typeof obj[key] === "object" && obj[key] !== null){
       copyObj[key] = deepCopy(obj[key])
     }else{
       copyObj[key] = obj[key]
@@ -185,6 +185,19 @@ function deepCopy(){
 ```
 
 
+
+```js
+let data={
+  title:1,
+  name:"fox",
+  age:23
+} 
+
+let user={}
+// 问题：我想要user里面获取到data的name，age， 又不想用以下的操作方式，还有别的办法吗
+user.age = data.data
+user.name = data.name
+```
 
 
 
@@ -244,13 +257,13 @@ class Promise(){
     this.value = undefined;
     this.reason = undefined;
   }
-  let resolve =(value) =>{
+  resolve =(value) =>{
     if(this.status === PENDING){
       this.status = FULFILLED;
       this.value = value;
     }
   }
-  let reject = (reason) =>{
+  reject = (reason) =>{
     if(this.status===PENDING){
       this.status = REJECTED;
       this.reason = reason;
@@ -352,5 +365,11 @@ var o = {
 o.b.c.d()
 ```
 
+## 浏览器渲染过程
 
+1. 解析HTML生成DOM树
+2. 解析CSS生成CSSOM树
+3. 讲DOM树与CSSOM规则树合并在一起生成渲染树
+4. 遍历渲染树开始布局，计算每个节点的位置大小信息
+5. 将渲染树每个节点绘制到屏幕
 
