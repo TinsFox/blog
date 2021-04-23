@@ -2,9 +2,10 @@ const pluginConf = require('./config/pluginConf.js');
 const navConf = require('./config/navConf.js');
 const headConf = require('./config/headConf.js');
 module.exports = {
+  lang:"zh-cn",
   port: "6004",
-  title: '',
-  description: '',
+  title: "TinsFox's blog",
+  description: 'TinsFox 的博客',
   lastUpdated: 'Last Updated',
   head: headConf,
   plugins: pluginConf,
