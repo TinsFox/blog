@@ -137,6 +137,10 @@ module.exports = [{
         link: '/more/interview/'
       },
       {
+        text: 'limbo的成神之路',
+        link: '/more/limbo/'
+      },
+      {
         text: '小工具',
         link: '/more/hodgepodge/'
       },
