@@ -33,29 +33,48 @@ module.exports = [{
         link: '/frontend/miniprogram/'
       },
       {
-        text: 'Flutter',
-        link: '/frontend/flutter/'
-      },
-      {
-        text: 'D3',
-        link: '/frontend/d3js/'
-      },
-      {
-        text: 'Utils',
-        link: '/frontend/utils/'
-      },
-      {
         text: 'Lodash',
         link: '/frontend/lodash/'
       },
     ]
   },
   {
-    text: '计算机',
-    link: '/computer/'
+    text: '后端',
+    items: [{
+        text: 'Nodejs',
+        link: '/backend/nodejs/'
+      },
+      {
+        text: 'Koa',
+        link: '/backend/koa/'
+      },
+
+      {
+        text: 'MongoDB',
+        link: '/backend/mongodb/'
+      }
+    ]
+  },{
+    text: '运维',
+    items: [{
+        text: 'Docker',
+        link: '/OperationAndMaintenance/docker/'
+      },
+      {
+        text: 'Nginx',
+        link: '/OperationAndMaintenance/nginx/'
+      },
+      {
+        text: 'shell',
+        link: '/OperationAndMaintenance/shell/'
+      },{
+        text:'DevOps',
+        link:'/OperationAndMaintenance/DevOps'
+      }
+    ]
   },
   {
-    text: '系统',
+    text: '操作系统',
     items: [{
         text: 'Linux',
         link: '/os/linux/'
@@ -75,38 +94,6 @@ module.exports = [{
     ]
   },
   {
-    text: '后端',
-    items: [{
-        text: 'Nodejs',
-        link: '/backend/nodejs/'
-      },
-      {
-        text: 'Koa',
-        link: '/backend/koa/'
-      },
-      {
-        text: 'Nginx',
-        link: '/backend/nginx/'
-      },
-      {
-        text: 'MongoDB',
-        link: '/backend/mongodb/'
-      },
-      {
-        text: 'Docker',
-        link: '/backend/docker/'
-      },
-    ]
-  },
-  {
-    text: 'DevOps',
-    link: '/DevOps/'
-  },
-  {
-    text: 'Shell',
-    link: '/shell/'
-  },
-  {
     text: '开发工具',
     items: [{
         text: 'Git',
@@ -123,11 +110,7 @@ module.exports = [{
       {
         text: 'Chrome Developer tools',
         link: '/tools/chrome/'
-      },
-      {
-        text: 'Bookmark scripts',
-        link: '/tools/bookmark-scripts/'
-      },
+      }
     ]
   },
   {

@@ -2,7 +2,7 @@ const pluginConf = require('./config/pluginConf.js');
 const navConf = require('./config/navConf.js');
 const headConf = require('./config/headConf.js');
 module.exports = {
-  lang:"zh-cn",
+  lang: 'zh-CN',
   port: "6004",
   title: "TinsFox's blog",
   description: 'TinsFox 的博客',

@@ -1,10 +1,3 @@
-/*
- * @Author: TinsFox
- * @Date: 2021-01-12 09:07:41
- * @LastEditors: TinsFox
- * @LastEditTime: 2021-01-12 09:07:49
- * @Description: 
- */
 // 使用异步函数也是可以的
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数
