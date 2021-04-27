@@ -8,6 +8,7 @@ module.exports = [{
   },
   {
     text: '前端',
+     link: '/frontend/',
     items: [{
         text: 'JavaScript',
         link: '/frontend/javascript/'
@@ -69,30 +70,30 @@ module.exports = [{
         link: '/OperationAndMaintenance/shell/'
       },{
         text:'DevOps',
-        link:'/OperationAndMaintenance/DevOps'
+        link:'/OperationAndMaintenance/DevOps/'
       }
     ]
   },
-  {
-    text: '操作系统',
-    items: [{
-        text: 'Linux',
-        link: '/os/linux/'
-      },
-      {
-        text: 'Manjaro',
-        link: '/os/manjaro/'
-      },
-      {
-        text: 'Ubuntu',
-        link: '/os/ubuntu/'
-      },
-      {
-        text: 'CentOS',
-        link: '/os/centos/'
-      },
-    ]
-  },
+  // {
+  //   text: '操作系统',
+  //   items: [{
+  //       text: 'Linux',
+  //       link: '/os/linux/'
+  //     },
+  //     {
+  //       text: 'Manjaro',
+  //       link: '/os/manjaro/'
+  //     },
+  //     {
+  //       text: 'Ubuntu',
+  //       link: '/os/ubuntu/'
+  //     },
+  //     {
+  //       text: 'CentOS',
+  //       link: '/os/centos/'
+  //     },
+  //   ]
+  // },
   {
     text: '开发工具',
     items: [{
@@ -120,10 +121,6 @@ module.exports = [{
         link: '/more/interview/'
       },
       {
-        text: 'limbo的成神之路',
-        link: '/more/limbo/'
-      },
-      {
         text: '小工具',
         link: '/more/hodgepodge/'
       },
@@ -134,6 +131,10 @@ module.exports = [{
       {
         text: 'VuePress 官网',
         link: 'https://vuepress.vuejs.org/zh/'
+      },
+      {
+        text: 'limbo的成神之路',
+        link: '/more/limbo/'
       },
     ]
   }
