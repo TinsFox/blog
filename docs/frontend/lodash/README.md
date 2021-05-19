@@ -35,3 +35,13 @@ let curryN = require('lodash/fp/curryN');
 let object={}
 _.isEmpty(object)//true
 ```
+
+### 判断是否为空
+
+`isEmpty`
+
+```
+```
+
+
+

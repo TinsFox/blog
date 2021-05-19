@@ -43,5 +43,3 @@ title: Git
    git remote rm origin
    ```
 
-7. 
-

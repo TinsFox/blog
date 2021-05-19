@@ -8,7 +8,7 @@ module.exports = [{
   },
   {
     text: '前端',
-     link: '/frontend/',
+    link: '/frontend/',
     items: [{
         text: 'JavaScript',
         link: '/frontend/javascript/'

@@ -84,4 +84,181 @@ title: 前端-CSS
    - `[attr*=val]`: 属性包含指定值的元素；
    - `[]`
 
+   ## 高度坍塌
+   
+   产生原因：当父元素没有设置高度时，他的高度是由他的内容撑开。一旦他的所有子元素脱离文档流，那么父元素的高度就会变为0。
+   
+   未脱离文档流情景
+   
+   ```html
+   <!DOCTYPE html>
+   <html lang="en">
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>Document</title>
+       <style>
+           .parent{
+               width: 200px;background-color: green;    
+           }
+           .child{
+               width: 100px;height: 100px;background-color: purple; 
+               /* float: left; */   
+           }
+       </style>
+   </head>
+   <body>
+       <div class="parent">
+           <div class="child"></div>
+       </div>
+   </body>
+   </html>
+   ```
+
+![image-20210518101840306](https://pic.tinsfox.com/uPic/image-20210518101840306.png)
+
+​		脱离文档流之后看不到子元素的内容
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            width: 200px;background-color: green;    
+        }
+        .child{
+            width: 100px;height: 100px;background-color: purple; 
+            float: left;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+</body>
+</html>
+```
+
+![image-20210518101904624](https://pic.tinsfox.com/uPic/image-20210518101904624.png)
+
+解决办法
+
+```css
+  .parent::after{
+    content: "";
+    display: block;
+    clear: both;
+}    //他的实质就是在最后父元素的最后添加一个块级小儿子，同时给他清除浮动
+```
+
+## 外边距的重合
+
+两个div上下排列时，上面的div设置了10px的下外边距，下面的div设置了20px的上外边距，这时候div1与div2的垂直方向的边距就会重合在一起，垂直方向的距离会以最大的边距的值为准，所以此时的垂直距离为20px而不是10+20=30px。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+ .d1{
+ width: 100px;height: 100px;background-color: green;
+ margin-bottom: 10px;
+        }
+ .d2{
+ width: 100px;height: 100px;background-color: purple;
+ margin-top: 20px;
+        }
+ </style>
+</head>
+<body>
+ <div class="d1"></div>
+ <div class="d2"></div>
+</body>
+</html>
+```
+
+![image-20210518103313060](https://pic.tinsfox.com/uPic/image-20210518103313060.png)
+
+解决办法
+
+1. 设置的时候尽可能单方面设计
+2. 其中一个使用padding进行设置
+
+
+
+# 外边距溢出
+
+如果父盒子没有设置边距，并且子盒子的上边缘和父盒子的上边缘重合时，给外边距溢出提供了条件，这时候如果给子盒子设置上10px的上外边距，子盒子不会相对父盒子下移10px，而是父盒子整体向下移动10px。
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+ .d1{
+ width: 100px;height: 100px;background-color: green;    
+        }
+ .d2{
+ width: 100px;height: 100px;background-color: purple; 
+        }
+ .d3{
+ width: 50px;height: 50px;background-color: blue;
+ margin-top: 10px;
+        }
+ </style>
+</head>
+<body>
+ <div class="d1"></div>
+ <div class="d2">
+      <div class="d3">
+ </div>
+ </div>
+</body>
+</html>
+```
+
+![image-20210518104230152](https://pic.tinsfox.com/uPic/image-20210518104230152.png)
+
+解决办法
+
+1. 给父元素加上边框，有弊端（增加了父元素的实际占地高度）
+
+2. 给父元素加上内边距，有弊端（增加了父元素的实际占地高度）
+
+3. 给父元素添加overflow:hidden/auto，弊端（如果想要溢出可见就不行了）
+
+4. 给父元素增加一个子元素
+
+   ```html
+   <div class="d2">       
+        <table></table>     <!-- 这里多了页面结构也不太好 -->
+        <div class="d3">  
+   </div> 
+   ```
+
+5. 使用CSS3伪类`::before` 给父元素添加内容
+
+   ```css
+   .d2::before{
+     content:'',
+     display:table
+   }//原理是方法4
+   ```
+
    
