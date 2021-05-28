@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>防抖与节流 | TinsFox&#39;s blog</title>
+    <meta name="generator" content="VuePress 1.8.0">
+    <link rel="apple-touch-icon" href="/blog/apple-touch-icon.png">
+    <link rel="icon" href="/blog/favicon.ico">
+    <link rel="manifest" href="/blog/manifest.json">
+    <meta name="description" content="TinsFox 的博客">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.020b361d.css" as="style"><link rel="preload" href="/blog/assets/js/app.1f1b9b14.js" as="script"><link rel="preload" href="/blog/assets/js/2.258b7133.js" as="script"><link rel="preload" href="/blog/assets/js/35.00c3ed46.js" as="script"><link rel="preload" href="/blog/assets/js/3.017e4dcb.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.a05413ae.js"><link rel="prefetch" href="/blog/assets/js/11.5a75dba6.js"><link rel="prefetch" href="/blog/assets/js/12.944dcc41.js"><link rel="prefetch" href="/blog/assets/js/13.1d350cb8.js"><link rel="prefetch" href="/blog/assets/js/14.95fa5748.js"><link rel="prefetch" href="/blog/assets/js/15.403e2463.js"><link rel="prefetch" href="/blog/assets/js/16.23603a95.js"><link rel="prefetch" href="/blog/assets/js/17.35778143.js"><link rel="prefetch" href="/blog/assets/js/18.d2ba22f9.js"><link rel="prefetch" href="/blog/assets/js/19.20a56c3c.js"><link rel="prefetch" href="/blog/assets/js/20.e02efae9.js"><link rel="prefetch" href="/blog/assets/js/21.ce22157b.js"><link rel="prefetch" href="/blog/assets/js/22.ffe68c71.js"><link rel="prefetch" href="/blog/assets/js/23.49e9514b.js"><link rel="prefetch" href="/blog/assets/js/24.04b3788d.js"><link rel="prefetch" href="/blog/assets/js/25.3d6038bd.js"><link rel="prefetch" href="/blog/assets/js/26.51413742.js"><link rel="prefetch" href="/blog/assets/js/27.ebc3bc20.js"><link rel="prefetch" href="/blog/assets/js/28.9f1d81d6.js"><link rel="prefetch" href="/blog/assets/js/29.8a24b6c9.js"><link rel="prefetch" href="/blog/assets/js/30.36b63e9d.js"><link rel="prefetch" href="/blog/assets/js/31.bfdd153a.js"><link rel="prefetch" href="/blog/assets/js/32.5a6b8369.js"><link rel="prefetch" href="/blog/assets/js/33.be3635b1.js"><link rel="prefetch" href="/blog/assets/js/34.f46800a0.js"><link rel="prefetch" href="/blog/assets/js/36.76b3994c.js"><link rel="prefetch" href="/blog/assets/js/37.64f8d805.js"><link rel="prefetch" href="/blog/assets/js/38.a05c4cae.js"><link rel="prefetch" href="/blog/assets/js/39.95954e23.js"><link rel="prefetch" href="/blog/assets/js/4.03fc35ff.js"><link rel="prefetch" href="/blog/assets/js/40.d43637ec.js"><link rel="prefetch" href="/blog/assets/js/41.61e18b4c.js"><link rel="prefetch" href="/blog/assets/js/42.e5636ecf.js"><link rel="prefetch" href="/blog/assets/js/43.d9e57c11.js"><link rel="prefetch" href="/blog/assets/js/44.3a6de3b6.js"><link rel="prefetch" href="/blog/assets/js/45.440094f2.js"><link rel="prefetch" href="/blog/assets/js/46.b09aabcf.js"><link rel="prefetch" href="/blog/assets/js/47.17754eb2.js"><link rel="prefetch" href="/blog/assets/js/48.134fe04e.js"><link rel="prefetch" href="/blog/assets/js/49.40955936.js"><link rel="prefetch" href="/blog/assets/js/5.1092b25f.js"><link rel="prefetch" href="/blog/assets/js/50.8ce5b936.js"><link rel="prefetch" href="/blog/assets/js/51.c4622e54.js"><link rel="prefetch" href="/blog/assets/js/52.7e7acd8e.js"><link rel="prefetch" href="/blog/assets/js/53.aa1b6791.js"><link rel="prefetch" href="/blog/assets/js/6.8b85a230.js"><link rel="prefetch" href="/blog/assets/js/7.d26ce720.js"><link rel="prefetch" href="/blog/assets/js/8.09d657c0.js"><link rel="prefetch" href="/blog/assets/js/9.520e4064.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.020b361d.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">TinsFox's blog</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/guide/" class="nav-link">
+  前言
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/frontend/javascript/" class="nav-link router-link-active">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/webpack/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/uniapp/" class="nav-link">
+  uni-app
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/miniprogram/" class="nav-link">
+  微信小程序
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/lodash/" class="nav-link">
+  Lodash
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/blog/backend/koa/" class="nav-link">
+  Koa
+</a></li><li class="dropdown-item"><!----> <a href="/blog/backend/mongodb/" class="nav-link">
+  MongoDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维" class="dropdown-title"><span class="title">运维</span> <span class="arrow down"></span></button> <button type="button" aria-label="运维" class="mobile-dropdown-title"><span class="title">运维</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/OperationAndMaintenance/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/blog/OperationAndMaintenance/nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/blog/OperationAndMaintenance/shell/" class="nav-link">
+  shell
+</a></li><li class="dropdown-item"><!----> <a href="/blog/OperationAndMaintenance/DevOps/" class="nav-link">
+  DevOps
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发工具" class="mobile-dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/tools/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tools/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tools/vscode/" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tools/chrome/" class="nav-link">
+  Chrome Developer tools
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow down"></span></button> <button type="button" aria-label="更多" class="mobile-dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/more/interview/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/blog/more/hodgepodge/" class="nav-link">
+  小工具
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  提问的艺术
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress 官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/blog/more/limbo/" class="nav-link">
+  limbo的成神之路
+</a></li></ul></div></div> <a href="https://github.com/TinsFox/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link">
+  首页
+</a></div><div class="nav-item"><a href="/blog/guide/" class="nav-link">
+  前言
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="前端" class="dropdown-title"><span class="title">前端</span> <span class="arrow down"></span></button> <button type="button" aria-label="前端" class="mobile-dropdown-title"><span class="title">前端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/frontend/javascript/" class="nav-link router-link-active">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/css/" class="nav-link">
+  CSS
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/vue/" class="nav-link">
+  Vue
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/webpack/" class="nav-link">
+  Webpack
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/uniapp/" class="nav-link">
+  uni-app
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/miniprogram/" class="nav-link">
+  微信小程序
+</a></li><li class="dropdown-item"><!----> <a href="/blog/frontend/lodash/" class="nav-link">
+  Lodash
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="后端" class="dropdown-title"><span class="title">后端</span> <span class="arrow down"></span></button> <button type="button" aria-label="后端" class="mobile-dropdown-title"><span class="title">后端</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/backend/nodejs/" class="nav-link">
+  Nodejs
+</a></li><li class="dropdown-item"><!----> <a href="/blog/backend/koa/" class="nav-link">
+  Koa
+</a></li><li class="dropdown-item"><!----> <a href="/blog/backend/mongodb/" class="nav-link">
+  MongoDB
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="运维" class="dropdown-title"><span class="title">运维</span> <span class="arrow down"></span></button> <button type="button" aria-label="运维" class="mobile-dropdown-title"><span class="title">运维</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/OperationAndMaintenance/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/blog/OperationAndMaintenance/nginx/" class="nav-link">
+  Nginx
+</a></li><li class="dropdown-item"><!----> <a href="/blog/OperationAndMaintenance/shell/" class="nav-link">
+  shell
+</a></li><li class="dropdown-item"><!----> <a href="/blog/OperationAndMaintenance/DevOps/" class="nav-link">
+  DevOps
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="开发工具" class="dropdown-title"><span class="title">开发工具</span> <span class="arrow down"></span></button> <button type="button" aria-label="开发工具" class="mobile-dropdown-title"><span class="title">开发工具</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/tools/git/" class="nav-link">
+  Git
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tools/github/" class="nav-link">
+  Github
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tools/vscode/" class="nav-link">
+  VSCode
+</a></li><li class="dropdown-item"><!----> <a href="/blog/tools/chrome/" class="nav-link">
+  Chrome Developer tools
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="更多" class="dropdown-title"><span class="title">更多</span> <span class="arrow down"></span></button> <button type="button" aria-label="更多" class="mobile-dropdown-title"><span class="title">更多</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/more/interview/" class="nav-link">
+  面试题
+</a></li><li class="dropdown-item"><!----> <a href="/blog/more/hodgepodge/" class="nav-link">
+  小工具
+</a></li><li class="dropdown-item"><!----> <a href="https://github.com/ryanhanwu/How-To-Ask-Questions-The-Smart-Way/blob/main/README-zh_CN.md" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  提问的艺术
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="https://vuepress.vuejs.org/zh/" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  VuePress 官网
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></li><li class="dropdown-item"><!----> <a href="/blog/more/limbo/" class="nav-link">
+  limbo的成神之路
+</a></li></ul></div></div> <a href="https://github.com/TinsFox/blog" target="_blank" rel="noopener noreferrer" class="repo-link">
+    Github
+    <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JS 基础</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/frontend/javascript/" aria-current="page" class="sidebar-link">介绍</a></li><li><a href="/blog/frontend/javascript/promise.html" class="sidebar-link">Promise</a></li><li><a href="/blog/frontend/javascript/this.html" class="sidebar-link">this指向</a></li><li><a href="/blog/frontend/javascript/作用域.html" class="sidebar-link">作用域</a></li><li><a href="/blog/frontend/javascript/垃圾回收机制.html" class="sidebar-link">垃圾回收机制</a></li><li><a href="/blog/frontend/javascript/执行上下文.html" class="sidebar-link">执行上下文</a></li><li><a href="/blog/frontend/javascript/数据类型.html" class="sidebar-link">数据类型</a></li><li><a href="/blog/frontend/javascript/数组.html" class="sidebar-link">数组</a></li><li><a href="/blog/frontend/javascript/浅拷贝与深拷贝.html" class="sidebar-link">拷贝</a></li><li><a href="/blog/frontend/javascript/浏览器渲染过程.html" class="sidebar-link">浏览器渲染过程</a></li><li><a href="/blog/frontend/javascript/缓存.html" class="sidebar-link">缓存</a></li><li><a href="/blog/frontend/javascript/闭包.html" class="sidebar-link">闭包</a></li><li><a href="/blog/frontend/javascript/防抖与节流.html" class="active sidebar-link">防抖与节流</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/frontend/javascript/防抖与节流.html#防抖" class="sidebar-link">防抖</a></li><li class="sidebar-sub-header"><a href="/blog/frontend/javascript/防抖与节流.html#节流" class="sidebar-link">节流</a></li></ul></li><li><a href="/blog/frontend/javascript/预编译.html" class="sidebar-link">预编译</a></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="防抖"><a href="#防抖" class="header-anchor">#</a> 防抖</h2> <p>定义：触发事件后，函数在n秒内只执行一次，如果事件再次触发,则<strong>会重新计算函数执行时间</strong></p> <p>实际应用：</p> <p>(1) input输入框频繁输入，进行模糊查找。<strong>在最后一次键盘抬起后的一秒</strong>，进行数据请求</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span>deplay</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> timeout<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token function">cleatTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+      <span class="token function">func</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    	<span class="token punctuation">}</span><span class="token punctuation">,</span>deplay<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br></div></div><h2 id="节流"><a href="#节流" class="header-anchor">#</a> 节流</h2> <p>定义：连续触发的事件中，函数只在<strong>n秒内执行一次</strong></p> <p>实际应用：</p> <p>(1) 点击<strong>按钮</strong>请求数据请求，如果频繁点击，对于网络不好，或者返回数据慢的情况。会造成页面数据混乱，那我们规定在n秒内只执行一次，就能很好的<strong>稀释这个频繁请求</strong></p> <p>(2) 浏览器的scroll()滚动事件，在<strong>图片赖加载</strong>的时候，我们需要监听浏览器的滚动位置，来加载图片。这个时候可以用节流，来<strong>稀释监听的频率</strong>，哪怕是100毫秒，也是很大的优化了。<strong>无论加载多块，都有时间差</strong>。</p> <p>(3) 浏览器的onresize()缩放,在<strong>pc适配移动端</strong>时，如果需要频繁监听浏览器的缩放，来判断当前页面展示是pc还是移动端。</p> <ol><li><p>时间戳版本</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span>deplay</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> last <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">var</span> now <span class="token operator">=</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>now <span class="token operator">&gt;=</span>deplay<span class="token operator">+</span>last<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">func</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      last <span class="token operator">=</span> now<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;距离上次调用的时间差不满足&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br></div></div></li> <li><p>定时器版本</p> <div class="language-js line-numbers-mode"><pre class="language-js"><code><span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span>deplay</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token operator">!</span>timer<span class="token punctuation">)</span><span class="token punctuation">{</span>
+      <span class="token function">func</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>argument<span class="token punctuation">)</span>
+      timer <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{</span>
+        timer <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>deplay<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&quot;距离上次调用的时间差不满足&quot;</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br></div></div></li></ol></div> <footer class="page-edit"><div class="edit-link"><a href="https://github.com/TinsFox/blog/edit/main/docs/frontend/javascript/防抖与节流.md" target="_blank" rel="noopener noreferrer">帮助我改善此页面！</a> <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></div> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2021年5月28日星期五上午9点43分</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/blog/frontend/javascript/闭包.html" class="prev">
+        闭包
+      </a></span> <span class="next"><a href="/blog/frontend/javascript/预编译.html">
+        预编译
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"><!----><!----></div></div>
+    <script src="/blog/assets/js/app.1f1b9b14.js" defer></script><script src="/blog/assets/js/2.258b7133.js" defer></script><script src="/blog/assets/js/35.00c3ed46.js" defer></script><script src="/blog/assets/js/3.017e4dcb.js" defer></script>
+  </body>
+</html>
